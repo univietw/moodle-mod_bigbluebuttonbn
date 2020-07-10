@@ -2964,6 +2964,10 @@ function bigbluebuttonbn_settings_participants(&$renderer) {
     // Configuration for defining the default role/user that will be moderator on new activities.
     if ((boolean) \mod_bigbluebuttonbn\settings\validator::section_moderator_default_shown()) {
         $renderer->render_group_header('participant');
+        $renderer->render_group_element(
+            'participant_guestlink',
+            $renderer->render_group_element_checkbox('participant_guestlink', 0)
+        );
         // UI for 'participants' feature.
         $roles = bigbluebuttonbn_get_roles(null, false);
         $owner = array('0' => get_string('mod_form_field_participant_list_type_owner', 'bigbluebuttonbn'));

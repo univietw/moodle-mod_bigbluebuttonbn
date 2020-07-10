@@ -358,9 +358,11 @@ class mod_bigbluebuttonbn_mod_form extends moodleform_mod {
             $field['type'] = 'checkbox';
             $field['description_key'] = 'mod_form_field_muteonstart';
         }
+        
         $this->bigbluebuttonbn_mform_add_element($mform, $field['type'], $field['name'], $field['data_type'],
             $field['description_key'], $cfg['muteonstart_default']);
 
+        $mform->addElement('advcheckbox', 'guestlinkenabled', get_string('mod_form_field_guestlinkenabled', 'bigbluebuttonbn'), ' ');
     }
 
     /**

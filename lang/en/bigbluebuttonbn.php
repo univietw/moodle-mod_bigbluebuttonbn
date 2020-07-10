@@ -183,6 +183,8 @@ $string['config_presentation_default_description'] = 'This setting allow to sele
 
 $string['config_participant'] = 'Participant configuration';
 $string['config_participant_description'] = 'These settings define the role by default for participants in a conference.';
+$string['config_participant_guestlink'] = 'Allow guestlink';
+$string['config_participant_guestlink_description'] = 'Allow moderator to create a guestlink for external participants.';
 $string['config_participant_moderator_default'] = 'Moderator by default';
 $string['config_participant_moderator_default_description'] = 'This rule is used by default when a new room is added.';
 
@@ -301,6 +303,7 @@ $string['mod_form_field_recordings_preview'] = 'Show recording preview';
 $string['mod_form_field_recordallfromstart'] = 'Record all from start';
 $string['mod_form_field_recordhidebutton'] = 'Hide recording button';
 $string['mod_form_field_nosettings'] = 'No settings can be edited';
+$string['mod_form_field_guestlinkenabled'] = 'Create guestlink for external participants.';
 
 $string['starts_at'] = 'Starts';
 $string['started_at'] = 'Started';
