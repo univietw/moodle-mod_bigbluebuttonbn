@@ -219,6 +219,19 @@ function xmldb_bigbluebuttonbn_upgrade($oldversion = 0) {
         // Update db version tag.
         upgrade_mod_savepoint(true, 2019101001, 'bigbluebuttonbn');
     }
+    if($oldversion < 2020071000) {
+            //Add field for guestpass
+            $fielddefinition = array('type' => XMLDB_TYPE_CHAR, 'precision' => '255', 'unsigned' => null,
+                'notnull' => null, 'sequence' => null, 'default' => null, 'previous' => null);
+            xmldb_bigbluebuttonbn_add_change_field($dbman,'bigbluebuttonbn', 'guestpass', $fielddefinition);
+            //Add field for guestlinkenabled
+            $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
+                'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+            xmldb_bigbluebuttonbn_add_change_field($dbman,'bigbluebuttonbn', 'guestlinkenabled', $fielddefinition);
+
+            // Bigbluebuttonbn savepoint reached.
+            upgrade_mod_savepoint(true, 2020071000, 'bigbluebuttonbn');
+    }
     return true;
 }
 
