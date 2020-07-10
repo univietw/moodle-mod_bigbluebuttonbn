@@ -72,6 +72,9 @@ class config {
             'recordingstatus_enabled' => false,
             'meetingevents_enabled' => false,
             'participant_moderator_default' => '0',
+            'participant_guestlink_enabled' => '1',
+            'participant_guestlink_default' => '0',
+            'custom_logo' => '',
             'scheduled_duration_enabled' => false,
             'scheduled_duration_compensation' => '10',
             'scheduled_pre_opening' => '10',
@@ -136,6 +139,15 @@ class config {
             return;
         }
         return $defaultvalues[$setting];
+    }
+
+    /**
+     * Validates if recording settings are enabled.
+     *
+     * @return boolean
+     */
+    public static function guestlinks_enabled() {
+        return (boolean)self::get('participant_guestlink');
     }
 
     /**
@@ -227,7 +239,6 @@ class config {
                'clienttype_default' => self::get('clienttype_default'),
                'muteonstart_editable' => self::get('muteonstart_editable'),
                'muteonstart_default' => self::get('muteonstart_default'),
-
                'disablecam_editable' => self::get('disablecam_editable'),
                'disablecam_default' => self::get('disablecam_default'),
                'disablemic_editable' => self::get('disablemic_editable'),
@@ -246,7 +257,7 @@ class config {
                'lockonjoin_default' => self::get('lockonjoin_default'),
                'lockonjoinconfigurable_editable' => self::get('lockonjoinconfigurable_editable'),
                'lockonjoinconfigurable_default' => self::get('lockonjoinconfigurable_default'),
-
+               'custom_logo' => self::get('custom_logo'),
           );
     }
 }
