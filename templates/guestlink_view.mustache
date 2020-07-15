@@ -23,22 +23,27 @@
     {"enabled" : true,
      "url"     : "https:\/\/moodle.example.org.at\/mod\/bigbluebuttonbn\/guestlink.php?gid=cXBWfCxKVSgU",
      "password": 123456,
-     "changepassenabled":true
+     "changepassenabled":true,
+     "datasource"
     }
 }}
 <div class="mod_bigbluebuttonbn_guestlink_view">
     {{#enabled}}
     <div class="w-100">
-        <label for="guestlink" class="d-inline-block w-25"> {{# str }} guestlink, mod_bigbluebutton {{/ str }}</label>
-        <input type="text" id="guestlink" class="d-inline-block w-50 readonly form-control" value="{{url}}" size="50"/>
-        <div id="guestlink-copy" class="btn btn-secondary d-inline-block">{{#pix}} t/copy, mod_bigbluebuttonbn {{/pix}}</div>
+        <label for="guestlink" class="d-inline-block w-25"> {{# str }} view_guestlink_label, bigbluebuttonbn {{/ str }}</label>
+        <input type="text" id="guestlink" class="d-inline-block w-50 form-control" readonly value="{{url}}" size="50"/>
+        <div id="guestlink-copy" class="btn btn-primary d-inline-block">{{#pix}} t/copy, mod_bigbluebuttonbn {{/pix}}</div>
     </div>
     <div class="w-100">
-        <label for="password" class="d-inline-block w-25"> {{# str }} guestlinkpassword, mod_bigbluebutton {{/ str }} </label>
-        <input type="text" id="password"  class="d-inline-block readonly form-control w-25" value="{{password}}" size="6"/>
+        <label for="password" class="d-inline-block w-25"> {{# str }} view_guestlink_password_label, bigbluebuttonbn {{/ str }} </label>
+        <input type="text" id="password"  class="d-inline-block form-control w-25" readonly value="{{password}}" size="6"/>
+        {{#changepassenabled}}
         <div id="password-random" class="btn btn-secondary d-inline-block">{{#pix}} t/random, mod_bigbluebuttonbn {{/pix}}</div>
-        <div id="password-copy" class="btn btn-secondary d-inline-block">{{#pix}} t/copy, mod_bigbluebuttonbn {{/pix}}</div>
+        {{/changepassenabled}}
+        <div id="password-copy" class="btn btn-primary d-inline-block">{{#pix}} t/copy, mod_bigbluebuttonbn {{/pix}}</div>
+        {{#changepassenabled}}
         <div id="password-delete" class="btn btn-secondary d-inline-block">{{#pix}} t/trash, mod_bigbluebuttonbn {{/pix}}</div>
+        {{/changepassenabled}}
     </div>
     {{/enabled}}
 </div>
