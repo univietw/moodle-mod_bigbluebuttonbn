@@ -305,6 +305,11 @@ $string['mod_form_field_recordhidebutton'] = 'Hide recording button';
 $string['mod_form_field_nosettings'] = 'No settings can be edited';
 $string['mod_form_field_guestlinkenabled'] = 'Create guestlink for external participants.';
 
+$string['guestlink_form_guestpass_info'] = 'Enter the room\'s access code';
+$string['guestlink_form_guestname_info'] = 'Enter your name!';
+$string['guestlink_form_join_button'] = 'Start';
+$string['guestlink_form_join_welcome'] = 'You have been invited to join!';
+
 $string['starts_at'] = 'Starts';
 $string['started_at'] = 'Started';
 $string['ends_at'] = 'Ends';
