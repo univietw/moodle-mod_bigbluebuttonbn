@@ -31,13 +31,33 @@ global $PAGE, $OUTPUT;
 
 $PAGE->set_url(new moodle_url('/mod/bigbluebuttonbn/guestlink.php'));
 $PAGE->set_context(context_system::instance());
-$PAGE->set_pagelayout('embedded');
-$gid = required_param('gid', PARAM_ALPHANUM); // This are required.
 
-$bbbsession = bigbluebuttonbn_get_bbbsession_by_guestlinkid($gid);
-$context = ['name'=>$bbbsession->name];
-echo $OUTPUT->render_from_template('mod_bigbluebuttonbn/guestaccess_view', $context);
+$gid = required_param('gid', PARAM_ALPHANUM); // This is required.
+$guestname = optional_param('guestname', '', PARAM_TEXT);
+$guestpass = optional_param('guestpass', '', PARAM_INT);
+$bigbluebuttonbn = bigbluebuttonbn_get_bigbluebuttonbn_by_guestlinkid($gid);
+$valid = ($guestname && ($bigbluebuttonbn->guestpass == $guestpass || !$bigbluebuttonbn->guestpass));
 
+
+if(!$valid) {
+    $context = ['name' => $bigbluebuttonbn->name, 'gid' => $gid];
+    echo $OUTPUT->render_from_template('mod_bigbluebuttonbn/guestaccess_view', $context);
+} else {
+    list($course,$cm) = get_course_and_cm_from_instance($bigbluebuttonbn, 'bigbluebuttonbn');
+    $context = context_module::instance($cm->id);
+    $bbbsession = [];
+    $bbbsession['course'] = $course;
+    $bbbsession['coursename'] = $course->fullname;
+    $bbbsession['cm'] = $cm;
+    $bbbsession['bigbluebuttonbn'] = $bigbluebuttonbn;
+    $bbbsession['username'] = $guestname;
+    bigbluebuttonbn_view_bbbsession_set($context, $bbbsession);
+    if (bigbluebuttonbn_is_meeting_running($bbbsession['meetingid'])) {
+        // Since the meeting is already running, we just join the session.
+        bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn);
+    } else {
+        echo "THE MEETING HAS NOT YET STARTED, YOU WILL JOIN AUTOMATICALLY ONCE IT HAS STARTED";//TODO
+    }
+}
 // $mform = new \mod_bigbluebuttonbn\guestlink\guestlink_form();
 // $mform->display();
-
