@@ -31,7 +31,7 @@ global $PAGE, $OUTPUT;
 
 $PAGE->set_url(new moodle_url('/mod/bigbluebuttonbn/guestlink.php'));
 $PAGE->set_context(context_system::instance());
-
+$PAGE->set_pagelayout('embedded');
 $gid = required_param('gid', PARAM_ALPHANUM); // This are required.
 
 $bbbsession = bigbluebuttonbn_get_bbbsession_by_guestlinkid($gid);
