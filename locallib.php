@@ -3517,12 +3517,48 @@ function bigbluebuttonbn_create_meeting_metadata(&$bbbsession) {
     }
     return $metadata;
 }
+
+/**
+ * Helper for preparing data used while joining the meeting.
+ *
+ * @param array    $bbbsession
+ * @param object   $bigbluebuttonbn
+ * @param integer  $origin
+ */
+function bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn, $origin = 0) {
+    // Update the cache.
+    $meetinginfo = bigbluebuttonbn_get_meeting_info($bbbsession['meetingid'], BIGBLUEBUTTONBN_UPDATE_CACHE);
+    if ($bbbsession['userlimit'] > 0 && intval($meetinginfo['participantCount']) >= $bbbsession['userlimit']) {
+        // No more users allowed to join.
+        header('Location: '.$bbbsession['logoutURL']);
+        return;
+    }
+    // Build the URL.
+    $password = $bbbsession['viewerPW'];
+    if ($bbbsession['administrator'] || $bbbsession['moderator']) {
+        $password = $bbbsession['modPW'];
+    }
+    $joinurl = bigbluebuttonbn_get_join_url($bbbsession['meetingid'], $bbbsession['username'],
+        $password, $bbbsession['logoutURL'], null, $bbbsession['userID'], $bbbsession['clienttype']);
+    // Moodle event logger: Create an event for meeting joined.
+    bigbluebuttonbn_event_log(\mod_bigbluebuttonbn\event\events::$events['meeting_join'], $bigbluebuttonbn);
+    // Internal logger: Instert a record with the meeting created.
+    $overrides = array('meetingid' => $bbbsession['meetingid']);
+    $meta = '{"origin":'.$origin.'}';
+    bigbluebuttonbn_log($bbbsession['bigbluebuttonbn'], BIGBLUEBUTTONBN_LOG_EVENT_JOIN, $overrides, $meta);
+    // Before executing the redirect, increment the number of participants.
+    bigbluebuttonbn_participant_joined($bbbsession['meetingid'],
+        ($bbbsession['administrator'] || $bbbsession['moderator']));
+    // Execute the redirect.
+    header('Location: '.$joinurl);
+}
+
 /**
  * 
  * @param string $guestlinkid
  * @return mixed|stdClass|false
  */
-function bigbluebuttonbn_get_bbbsession_by_guestlinkid(string $guestlinkid){
+function bigbluebuttonbn_get_bigbluebuttonbn_by_guestlinkid(string $guestlinkid){
     global $DB;
 
     $bbbsession = $DB->get_record('bigbluebuttonbn', ['guestlinkid'=>$guestlinkid]);
