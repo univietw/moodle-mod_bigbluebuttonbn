@@ -3519,10 +3519,10 @@ function bigbluebuttonbn_create_meeting_metadata(&$bbbsession) {
 }
 /**
  * 
- * @param int $guestlinkid
+ * @param string $guestlinkid
  * @return mixed|stdClass|false
  */
-function bigbluebuttonbn_get_bbbsession_by_guestlinkid(int $guestlinkid){
+function bigbluebuttonbn_get_bbbsession_by_guestlinkid(string $guestlinkid){
     global $DB;
 
     $bbbsession = $DB->get_record('bigbluebuttonbn', ['guestlinkid'=>$guestlinkid]);

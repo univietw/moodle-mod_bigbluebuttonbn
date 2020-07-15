@@ -1,0 +1,75 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="guestlink.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="header py-4">
+  <div class="container">
+    <div class="d-flex">
+
+    </div>
+  </div>
+</div>
+<section>
+
+<div class="wrapper">
+
+<div class="background pb-9" room="ang-q4m-7rx" user="anonymous" join-name="">
+  <div class="container">
+    <div class="row pt-9">
+      <div class="col-lg-12 col-sm-12">
+        <h4 class="text-left">{{# str }} guestlink_form_join_welcome,bigbluebuttonbn {{/ str }} </h4>
+        <h1 class="display-3 text-left mb-3 font-weight-400">{{name}}</h1>
+        <hr class="mt-2 float-left w-25">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+
+    <form action="/b/ang-q4m-7rx" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="WYoKYR4XWhhv2wz2A7RPM0+IiLtxpu4u+pQu8mMErA8i7R2mHcDa40jjQvBCenMD5PzWQhA8cmj5e4rKB3VDqw==" />
+      <div class="input-group">
+      <div class="row">
+        <input type="text" class="form-control " name="guestpass" id="id_guestpass" value="" size="" placeholder="{{# str }} guestlink_form_guestpass_info,bigbluebuttonbn {{/ str }}" >
+      </div>
+      <div class="row mt-4">
+          <input type="text" class="form-control " name="guestname" id="id_guestname" value="" size="" placeholder="{{# str }} guestlink_form_guestname_info,bigbluebuttonbn {{/ str }}" >
+          <input type="submit" class="btn btn-primary" name="joinbutton" id="id_joinbutton" value="{{# str }} guestlink_form_join_button,bigbluebuttonbn {{/ str }}">
+      </div>
+      </div>
+
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</section>
+</body>
+</html>
