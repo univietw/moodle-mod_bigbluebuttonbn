@@ -62,4 +62,3 @@ if(!$valid) {
 }
 // $mform = new \mod_bigbluebuttonbn\guestlink\guestlink_form();
 // $mform->display();
-

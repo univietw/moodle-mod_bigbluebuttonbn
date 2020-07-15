@@ -22,7 +22,7 @@ a {
 }
 
 .header {
-  height: 5%;
+  height: 10%;
 }
 
 .wrapper {
@@ -30,6 +30,14 @@ a {
   height: 300px;
 }
 
+.inputfield {
+  margin-top: 5px;
+  padding-right: 0px;
+}
+.inputbutton{
+  padding-left: 0px;
+  min-width: 150px;
+}
 .footer {
   height: 10%;
   width: 100%;
@@ -39,9 +47,9 @@ a {
   background-color: #F5F7FB;
 }
 
-.error-section {
-  background-color: $error-background-color;
-}
+/* .error-section { */
+/*   background-color: $error-background-color; */
+/* }*/
 
 .font-weight-400 {
   font-weight: 400;
@@ -117,7 +125,4 @@ input:focus {
 
 .header-brand-img {
   height: inherit;
-}
-#delete-confirm:disabled {
-  cursor: not-allowed;
 }
