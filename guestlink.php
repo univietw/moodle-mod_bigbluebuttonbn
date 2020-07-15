@@ -50,9 +50,10 @@ if(!$valid) {
     $bbbsession['coursename'] = $course->fullname;
     $bbbsession['cm'] = $cm;
     $bbbsession['bigbluebuttonbn'] = $bigbluebuttonbn;
-    $bbbsession['username'] = $guestname;
+
     bigbluebuttonbn_view_bbbsession_set($context, $bbbsession);
     if (bigbluebuttonbn_is_meeting_running($bbbsession['meetingid'])) {
+        $bbbsession['username'] = $guestname;
         // Since the meeting is already running, we just join the session.
         bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn);
     } else {
