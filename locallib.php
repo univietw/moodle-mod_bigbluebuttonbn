@@ -2494,7 +2494,8 @@ function bigbluebuttonbn_get_instance_type_profiles() {
             'features' => array('showroom', 'welcomemessage', 'voicebridge', 'waitformoderator', 'userlimit',
                 'recording', 'sendnotifications', 'preuploadpresentation', 'permissions', 'schedule', 'groups',
                 'modstandardelshdr', 'availabilityconditionsheader', 'tagshdr', 'competenciessection',
-                'clienttype', 'completionattendance', 'completionengagement', 'availabilityconditionsheader')),
+                'clienttype', 'completionattendance', 'completionengagement', 'availabilityconditionsheader',
+                'viewguestlink', 'changeguestlinkpass')),
         BIGBLUEBUTTONBN_TYPE_RECORDING_ONLY => array('id' => BIGBLUEBUTTONBN_TYPE_RECORDING_ONLY,
             'name' => get_string('instance_type_recording_only', 'bigbluebuttonbn'),
             'features' => array('showrecordings', 'importrecordings', 'availabilityconditionsheader')),
@@ -2517,6 +2518,10 @@ function bigbluebuttonbn_get_enabled_features($typeprofiles, $type = null) {
         $features = $typeprofiles[$type]['features'];
     }
     $enabledfeatures['showroom'] = (in_array('all', $features) || in_array('showroom', $features));
+    if(\mod_bigbluebuttonbn\locallib\config::guestlinks_enabled()) {
+        $enabledfeatures['viewguestlink'] = (in_array('all', $features) || in_array('viewguestlink', $features));
+        $enabledfeatures['changeguestlinkpass'] = (in_array('all', $features) || in_array('changeguestlinkpass', $features));
+    }
     // Evaluates if recordings are enabled for the Moodle site.
     $enabledfeatures['showrecordings'] = false;
     if (\mod_bigbluebuttonbn\locallib\config::recordings_enabled()) {

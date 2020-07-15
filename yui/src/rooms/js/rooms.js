@@ -44,6 +44,7 @@ M.mod_bigbluebuttonbn.rooms = {
         if (this.bigbluebuttonbn.profile_features.indexOf('all') != -1 ||
             this.bigbluebuttonbn.profile_features.indexOf('showroom') != -1) {
             this.initRoom();
+            this.initGuestLink();
         }
         this.initCompletionValidate();
     },
@@ -62,6 +63,16 @@ M.mod_bigbluebuttonbn.rooms = {
             return;
         }
         this.updateRoom();
+    },
+
+    initGuestLink: function() {
+        var context = this.bigbluebuttonbn.guestlink;
+        window.require(['core/templates', 'core/notification'], function(templates, notification) {
+            templates.render('mod_bigbluebuttonbn/guestlink_view', context)
+                    .then(function(html, js) {
+                        templates.appendNodeContents('#guestlink_panel', html, js);
+                    }).fail(notification.exception);
+        });
     },
 
     updateRoom: function(f) {

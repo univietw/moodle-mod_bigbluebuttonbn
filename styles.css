@@ -65,3 +65,8 @@
 .bbb_index_form {
     display: inline-block;
 }
+
+.mod_bigbluebuttonbn_guestlink_view .readonly {
+ background-color: #f8f9fa;
+ opacity: 1;
+}
