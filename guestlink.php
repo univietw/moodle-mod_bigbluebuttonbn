@@ -34,13 +34,22 @@ $PAGE->set_context(context_system::instance());
 
 $gid = required_param('gid', PARAM_ALPHANUM); // This is required.
 $guestname = optional_param('guestname', '', PARAM_TEXT);
-$guestpass = optional_param('guestpass', '', PARAM_INT);
+$guestpass = optional_param('guestpass', '', PARAM_TEXT);
 $bigbluebuttonbn = bigbluebuttonbn_get_bigbluebuttonbn_by_guestlinkid($gid);
 $valid = ($guestname && ($bigbluebuttonbn->guestpass == $guestpass || !$bigbluebuttonbn->guestpass));
 
 
 if(!$valid) {
-    $context = ['name' => $bigbluebuttonbn->name, 'gid' => $gid];
+    $guestpasserrormessage = false;
+    $guestnameerrormessage = false;
+    if($guestpass && $bigbluebuttonbn->guestpass != $guestpass){
+        $guestpasserrormessage = true;
+    }
+    $context = ['name' => $bigbluebuttonbn->name, 'gid' => $gid, 
+        'guestpassenabled' => $bigbluebuttonbn->guestpass,
+        'guestpasserrormessage' => $guestpasserrormessage,
+        'guestnameerrormessage' => $guestnameerrormessage
+    ];
     echo $OUTPUT->render_from_template('mod_bigbluebuttonbn/guestaccess_view', $context);
 } else {
     list($course,$cm) = get_course_and_cm_from_instance($bigbluebuttonbn, 'bigbluebuttonbn');

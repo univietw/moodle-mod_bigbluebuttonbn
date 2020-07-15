@@ -309,6 +309,8 @@ $string['guestlink_form_guestpass_info'] = 'Enter the room\'s access code';
 $string['guestlink_form_guestname_info'] = 'Enter your name!';
 $string['guestlink_form_join_button'] = 'Start';
 $string['guestlink_form_join_welcome'] = 'You have been invited to join!';
+$string['guestlink_form_join_wrong_password'] = 'Wrong access code!';
+$string['guestlink_form_join_no_username'] = 'Please enter your name!';
 
 $string['starts_at'] = 'Starts';
 $string['started_at'] = 'Started';

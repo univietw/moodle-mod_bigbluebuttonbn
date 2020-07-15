@@ -30,14 +30,13 @@
 <div class="header py-4">
   <div class="container">
     <div class="d-flex">
-
     </div>
   </div>
 </div>
 <section>
 
 <div class="wrapper background">
-<div class="row">
+<div class="row shiftrow">
     <div class="col-lg-3 col-md-3 col-sm-3"> </div>
     <div class="col-lg-6 col-md-6 col-sm-6">
             <h4 class="text-left">{{# str }} guestlink_form_join_welcome,bigbluebuttonbn {{/ str }} </h4>
@@ -53,17 +52,32 @@
     </div>
 </div>
 <form action="guestlink.php" accept-charset="UTF-8" method="post">
+{{#guestpassenabled}}
 <div class="row">
-    <div class="col-lg-5 col-md-5 col-sm-5"> </div>
+    <div class="col-lg-3 col-md-3 col-sm-3"> </div>
+    <div class="col-lg-2 col-md-2 col-sm-2">
+    {{#guestpasserrormessage}}
+        <div class="warning">
+            {{# str }} guestlink_form_join_wrong_password,bigbluebuttonbn {{/ str }}
+        </div>
+    {{/guestpasserrormessage}}
+    </div>
     <div class="col-lg-2 col-md-2 col-sm-2">
         <input type="text" class="form-control" name="guestpass" id="id_guestpass" value="" size="" placeholder="{{# str }} guestlink_form_guestpass_info,bigbluebuttonbn {{/ str }}" >
     </div>
     <div class="col-lg-5 col-md-5 col-sm-5"> </div>
 </div>
-<div class="row inputfield">
+{{/guestpassenabled}}
+<div class="row shiftrow">
     <input type="hidden" name="gid" value="{{gid}}"/>
-    <div class="col-lg-5 col-md-5 col-sm-5"> </div>
+    <div class="col-lg-3 col-md-3 col-sm-3"> </div>
     <div class="col-lg-2 col-md-2 col-sm-2">
+    {{#guestnameerrormessage}}
+        <div class="warning">
+            {{# str }} guestlink_form_join_no_username,bigbluebuttonbn {{/ str }}
+        </div>
+    {{/guestnameerrormessage}}
+    </div>    <div class="col-lg-2 col-md-2 col-sm-2">
             <input type="text" class="form-control " name="guestname" id="id_guestname" value="" size="" placeholder="{{# str }} guestlink_form_guestname_info,bigbluebuttonbn {{/ str }}" >
     </div>
     <div class="col-lg-5 col-md-5 col-sm-5"  style="padding-left:0px;">
