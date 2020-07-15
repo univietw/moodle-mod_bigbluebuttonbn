@@ -7,30 +7,18 @@ html, body {
   background-color: white;
 }
 
-a {
-  text-decoration: none !important;
-  cursor: pointer;
-}
-
-.dotted_underline {
-  border-bottom: 3px dashed #d3d3d3;
-  width: 100%;
-}
-
-.disable-click {
-  pointer-events: none;
-}
-
 .header {
   height: 10%;
 }
-
+.warning{
+  color: #a94442;
+}
 .wrapper {
   position: relative;
   height: 300px;
 }
 
-.inputfield {
+.shiftrow {
   margin-top: 5px;
   padding-right: 0px;
 }
@@ -46,82 +34,13 @@ a {
 .background {
   background-color: #F5F7FB;
 }
-
-/* .error-section { */
-/*   background-color: $error-background-color; */
-/* }*/
-
 .font-weight-400 {
   font-weight: 400;
-}
-
-.subtitle {
-  font-size: 25px;
-}
-
-.force-bottom {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-}
-
-.invite-link-input {
-  width: 100%;
-}
-
-.no-border-top {
-  td {
-    border-top: none;
-  }
 }
 
 .force-text-normal {
   color: #495057;
 }
-
-.terms {
-  overflow: scroll;
-  height: 55vh;
-}
-
-[contenteditable]:focus {
-  outline: 0px solid transparent;
-}
-
-.cookies-banner {
-  color: white;
-  background-color: $button-color-blue;
-  #cookies-agree-button {
-    margin: 0;
-  }
-}
-
-input:focus {
-    border-color: $primary !important;
-}
-
-.list-group-item-action.active {
-  color: $primary;
-}
-
-/* .header .header-nav { */
-/*   color: $text-muted !important; */
-
-/*   &:hover { */
-/*     padding-bottom: 21px; */
-/*     border-bottom: 1px solid $primary; */
-/*   } */
-
-/*   &.active { */
-/*     color: $primary !important; */
-/*     padding-bottom: 21px; */
-/*     border-bottom: 1px solid $primary; */
-/*   } */
-/* } */
-
-/* .cursor-pointer{ */
-/*   cursor: pointer; */
-/* } */
 
 .header-brand-img {
   height: inherit;
