@@ -71,7 +71,7 @@
     opacity: 1;
 }
 
-.bigbluebuttonbn-guestaccess-view {
+.bigbluebuttonbn-guestaccess-view html body{
   font-family: "Source Sans Pro";
   position: relative;
   width: 100%;
@@ -86,6 +86,7 @@
   color: #a94442;
 }
 .bigbluebuttonbn-guestaccess-view .wrapper {
+  padding-top: 15px;
   position: relative;
   height: 300px;
 }
