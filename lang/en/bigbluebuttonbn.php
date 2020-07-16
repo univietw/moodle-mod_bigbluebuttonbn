@@ -33,6 +33,8 @@ $string['bbbrecordallfromstartwarning'] = 'This session is being recorded from s
 $string['bigbluebuttonbn:addinstance'] = 'Add a new bigbluebuttonbn room/activity';
 $string['bigbluebuttonbn:join'] = 'Join a bigbluebuttonbn meeting';
 $string['bigbluebuttonbn:view'] = 'View a room/activity';
+$string['bigbluebuttonbn:guestlink_view'] = 'See the guestlink and it\'s access code of a bigbluebuttonbn room.';
+$string['bigbluebuttonbn:guestlink_change_password'] = 'Set/Change the access code for a guestlink.';
 $string['bigbluebuttonbn:managerecordings'] = 'Manage bigbluebuttonbn recordings';
 $string['bigbluebuttonbn:meeting'] = 'Create instances with live meeting capabilities';
 $string['bigbluebuttonbn:recording'] = 'Create instances with recording capabilities';
@@ -311,6 +313,7 @@ $string['guestlink_form_join_button'] = 'Start';
 $string['guestlink_form_join_welcome'] = 'You have been invited to join!';
 $string['guestlink_form_join_wrong_password'] = 'Wrong access code!';
 $string['guestlink_form_join_no_username'] = 'Please enter your name!';
+$string['guestlink_form_join_waiting'] = 'The meeting has not started (yet). You will automatically join, once it started.';
 
 $string['starts_at'] = 'Starts';
 $string['started_at'] = 'Started';

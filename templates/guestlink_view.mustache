@@ -20,30 +20,41 @@
     This template renders the import recordings page.
 
     Example context (json):
-    {"enabled" : true,
-     "url"     : "https:\/\/moodle.example.org.at\/mod\/bigbluebuttonbn\/guestlink.php?gid=cXBWfCxKVSgU",
-     "password": 123456,
-     "changepassenabled":true,
-     "datasource"
+    {
+        "url"     : "https:\/\/moodle.example.org.at\/mod\/bigbluebuttonbn\/guestlink.php?gid=cXBWfCxKVSgU",
+        "nopassword": false,
+        "password": 123456,
+        "changepassenabled":true,
+        "changepassdisabled": false,
     }
 }}
 <div class="mod_bigbluebuttonbn_guestlink_view">
-    {{#enabled}}
     <div class="w-100">
         <label for="guestlink" class="d-inline-block w-25"> {{# str }} view_guestlink_label, bigbluebuttonbn {{/ str }}</label>
         <input type="text" id="guestlink" class="d-inline-block w-50 form-control" readonly value="{{url}}" size="50"/>
         <div id="guestlink-copy" class="btn btn-primary d-inline-block">{{#pix}} t/copy, mod_bigbluebuttonbn {{/pix}}</div>
     </div>
+    {{#changepassenabled}}
     <div class="w-100">
         <label for="password" class="d-inline-block w-25"> {{# str }} view_guestlink_password_label, bigbluebuttonbn {{/ str }} </label>
-        <input type="text" id="password"  class="d-inline-block form-control w-25" readonly value="{{password}}" size="6"/>
-        {{#changepassenabled}}
+        {{#password}}
+            <input type="text" id="password"  class="d-inline-block form-control w-25" readonly value="{{password}}" size="6"/>
+        {{/password}}
+        {{#nopassword}}
+            <input type="text" id="password"  class="d-inline-block form-control w-25" readonly value="{{# str }} view_guestlink_password_no_password_set, bigbluebuttonbn {{/ str }}" size="6"/>
+        {{/nopassword}}
         <div id="password-random" class="btn btn-secondary d-inline-block">{{#pix}} t/random, mod_bigbluebuttonbn {{/pix}}</div>
-        {{/changepassenabled}}
         <div id="password-copy" class="btn btn-primary d-inline-block">{{#pix}} t/copy, mod_bigbluebuttonbn {{/pix}}</div>
-        {{#changepassenabled}}
         <div id="password-delete" class="btn btn-secondary d-inline-block">{{#pix}} t/trash, mod_bigbluebuttonbn {{/pix}}</div>
-        {{/changepassenabled}}
+        
     </div>
-    {{/enabled}}
+    {{/changepassenabled}}
+    {{#changepassdisabled}}{{#password}}
+        <div class="w-100">
+            <label for="password" class="d-inline-block w-25"> {{# str }} view_guestlink_password_label, bigbluebuttonbn {{/ str }} </label>
+            <input type="text" id="password"  class="d-inline-block form-control w-25" readonly value="{{password}}" size="6"/>
+            <div id="password-copy" class="btn btn-primary d-inline-block">{{#pix}} t/copy, mod_bigbluebuttonbn {{/pix}}</div>
+            
+        </div>
+    {{/password}}{{/changepassdisabled}}
 </div>

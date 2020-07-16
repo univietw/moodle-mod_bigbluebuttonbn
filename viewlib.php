@@ -225,10 +225,12 @@ function bigbluebuttonbn_view_render_room(&$bbbsession, $activity, &$jsvars) {
             if ($bbbsession['bigbluebuttonbn']->guestpass) {
                 $guestlink['password'] = $bbbsession['bigbluebuttonbn']->guestpass;
             } else {
-                $guestlink['password'] = get_string('view_guestlink_password_no_password_set', 'bigbluebuttonbn');
+                $guestlink['nopassword'] = true;
             }
             if (has_capability('mod/bigbluebuttonbn:guestlink_change_password', $context)) {
                 $guestlink['changepassenabled'] = true;
+            } else {
+                $guestlink['changepassdisabled'] = true;
             }
         }
     }

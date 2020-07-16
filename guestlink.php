@@ -29,12 +29,14 @@ require_once('locallib.php');
 
 global $PAGE, $OUTPUT;
 
-$PAGE->set_url(new moodle_url('/mod/bigbluebuttonbn/guestlink.php'));
-$PAGE->set_context(context_system::instance());
+
 
 $gid = required_param('gid', PARAM_ALPHANUM); // This is required.
 $guestname = optional_param('guestname', '', PARAM_TEXT);
 $guestpass = optional_param('guestpass', '', PARAM_TEXT);
+$PAGE->set_url(new moodle_url('/mod/bigbluebuttonbn/guestlink.php',['gid' => $gid, 'guestname' => $guestname, 'guestpass' => $guestpass]));
+$PAGE->set_context(context_system::instance());
+$PAGE->set_pagelayout('embedded');
 $bigbluebuttonbn = bigbluebuttonbn_get_bigbluebuttonbn_by_guestlinkid($gid);
 $valid = ($guestname && ($bigbluebuttonbn->guestpass == $guestpass || !$bigbluebuttonbn->guestpass));
 
@@ -50,7 +52,10 @@ if(!$valid) {
         'guestpasserrormessage' => $guestpasserrormessage,
         'guestnameerrormessage' => $guestnameerrormessage
     ];
+    
+    echo $OUTPUT->header();
     echo $OUTPUT->render_from_template('mod_bigbluebuttonbn/guestaccess_view', $context);
+    echo $OUTPUT->footer();
 } else {
     list($course,$cm) = get_course_and_cm_from_instance($bigbluebuttonbn, 'bigbluebuttonbn');
     $context = context_module::instance($cm->id);
@@ -66,8 +71,10 @@ if(!$valid) {
         // Since the meeting is already running, we just join the session.
         bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn);
     } else {
-        echo "THE MEETING HAS NOT YET STARTED, YOU WILL JOIN AUTOMATICALLY ONCE IT HAS STARTED";//TODO
+        $pinginterval = (int)\mod_bigbluebuttonbn\locallib\config::get('waitformoderator_ping_interval') * 1000;
+        echo $OUTPUT->header();
+        echo get_string('guestlink_form_join_waiting','bigbluebuttonbn');
+        echo "<script> setTimeout(function () {location.reload();}, $pinginterval);</script>";
+        echo $OUTPUT->footer();
     }
 }
-// $mform = new \mod_bigbluebuttonbn\guestlink\guestlink_form();
-// $mform->display();
