@@ -3560,7 +3560,5 @@ function bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn, $origin = 0
  */
 function bigbluebuttonbn_get_bigbluebuttonbn_by_guestlinkid(string $guestlinkid){
     global $DB;
-
-    $bbbsession = $DB->get_record('bigbluebuttonbn', ['guestlinkid'=>$guestlinkid]);
-    return $bbbsession;
+    return $DB->get_record('bigbluebuttonbn', ['guestlinkid'=>$guestlinkid]);
 }

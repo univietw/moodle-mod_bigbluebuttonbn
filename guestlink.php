@@ -24,12 +24,10 @@
  */
 
 require('../../config.php');
-require_once('lib.php');
-require_once('locallib.php');
+require_once(__DIR__ . '/lib.php');
+require_once(__DIR__ . '/locallib.php');
 
 global $PAGE, $OUTPUT;
-
-
 
 $gid = required_param('gid', PARAM_ALPHANUM); // This is required.
 $guestname = optional_param('guestname', '', PARAM_TEXT);
@@ -43,7 +41,6 @@ if(!\mod_bigbluebuttonbn\locallib\config::get('participant_guestlink')) {
     die();
 }
 
-
 $bigbluebuttonbn = bigbluebuttonbn_get_bigbluebuttonbn_by_guestlinkid($gid);
 if(!$bigbluebuttonbn->guestlinkenabled) {
     echo get_string('guestlink_form_guestlink_disabled_instance', 'bigbluebuttonbn');
@@ -51,20 +48,19 @@ if(!$bigbluebuttonbn->guestlinkenabled) {
 }
 $valid = ($guestname && ($bigbluebuttonbn->guestpass == $guestpass || !$bigbluebuttonbn->guestpass));
 
-
 if(!$valid) {
     $guestpasserrormessage = false;
     $guestnameerrormessage = false;
     if($guestpass && $bigbluebuttonbn->guestpass != $guestpass){
         $guestpasserrormessage = true;
     }
-    $context = ['name' => $bigbluebuttonbn->name, 'gid' => $gid, 
+    $context = ['name' => $bigbluebuttonbn->name, 'gid' => $gid,
         'guestpassenabled' => $bigbluebuttonbn->guestpass,
         'guestpasserrormessage' => $guestpasserrormessage,
         'guestnameerrormessage' => $guestnameerrormessage,
         'guestname' => $guestname
     ];
-    
+
     echo $OUTPUT->header();
     echo $OUTPUT->render_from_template('mod_bigbluebuttonbn/guestaccess_view', $context);
     echo $OUTPUT->footer();
