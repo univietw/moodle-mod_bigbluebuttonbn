@@ -214,7 +214,7 @@ function bigbluebuttonbn_view_render_room(&$bbbsession, $activity, &$jsvars) {
             userdate($bbbsession['closingtime']);
     }
     $guestlink = [];
-    if ($bbbsession['bigbluebuttonbn']->guestlinkenabled) {
+    if ($bbbsession['bigbluebuttonbn']->guestlinkenabled && \mod_bigbluebuttonbn\locallib\config::get('participant_guestlink')) {
         $cm = get_coursemodule_from_instance('bigbluebuttonbn', $bbbsession['bigbluebuttonbn']->id);
         $context = context_module::instance($cm->id);
         if (has_capability('mod/bigbluebuttonbn:guestlink_view', $context)) {
@@ -233,6 +233,8 @@ function bigbluebuttonbn_view_render_room(&$bbbsession, $activity, &$jsvars) {
                 $guestlink['changepassdisabled'] = true;
             }
         }
+    } else {
+        $guestlink['enabled'] = false;
     }
     $jsvars += array(
         'meetingid' => $bbbsession['meetingid'],

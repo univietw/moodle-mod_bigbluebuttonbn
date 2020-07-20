@@ -373,7 +373,7 @@ class mod_bigbluebuttonbn_mod_form extends moodleform_mod {
      * @return void
      */
     private function bigbluebuttonbn_mform_add_block_guestlink(&$mform, $cfg) {
-        if ((boolean)\mod_bigbluebuttonbn\locallib\config::get('participant_guestlink')) {
+        if (\mod_bigbluebuttonbn\locallib\config::get('participant_guestlink')) {
                 $mform->addElement('header', 'guestlink', get_string('mod_form_block_guestlink', 'bigbluebuttonbn'));
                 $mform->addElement('advcheckbox', 'guestlinkenabled', get_string('mod_form_field_guestlinkenabled', 'bigbluebuttonbn'), ' ');
         }

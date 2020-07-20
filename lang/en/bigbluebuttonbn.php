@@ -316,6 +316,8 @@ $string['guestlink_form_join_wrong_password'] = 'Wrong access code!';
 $string['guestlink_form_join_no_username'] = 'Please enter your name!';
 $string['guestlink_form_join_waiting'] = 'The meeting has not started (yet). You will automatically join, once it started.';
 $string['guestlink_form_noname_warning'] = 'Please enter a name!';
+$string['guestlink_form_guestlink_disabled'] = 'The administrator has not enabled this feature.';
+$string['guestlink_form_guestlink_disabled_instance'] = 'The invitation link for this room has been disabled.';
 
 $string['starts_at'] = 'Starts';
 $string['started_at'] = 'Started';

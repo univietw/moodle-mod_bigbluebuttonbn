@@ -37,7 +37,18 @@ $guestpass = optional_param('guestpass', '', PARAM_TEXT);
 $PAGE->set_url(new moodle_url('/mod/bigbluebuttonbn/guestlink.php',['gid' => $gid, 'guestname' => $guestname, 'guestpass' => $guestpass]));
 $PAGE->set_context(context_system::instance());
 $PAGE->set_pagelayout('embedded');
+
+if(!\mod_bigbluebuttonbn\locallib\config::get('participant_guestlink')) {
+    echo get_string('guestlink_form_guestlink_disabled', 'bigbluebuttonbn');
+    die();
+}
+
+
 $bigbluebuttonbn = bigbluebuttonbn_get_bigbluebuttonbn_by_guestlinkid($gid);
+if(!$bigbluebuttonbn->guestlinkenabled) {
+    echo get_string('guestlink_form_guestlink_disabled_instance', 'bigbluebuttonbn');
+    die();
+}
 $valid = ($guestname && ($bigbluebuttonbn->guestpass == $guestpass || !$bigbluebuttonbn->guestpass));
 
 
