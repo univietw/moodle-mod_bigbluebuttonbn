@@ -1112,7 +1112,7 @@ function mod_bigbluebuttonbn_get_fontawesome_icon_map() {
     return [
         'mod_bigbluebuttonbn:icon' => 'icon-bigbluebutton',
         'mod_bigbluebuttonbn:t/copy' => 'fa-copy',
-        'mod_bigbluebuttonbn:t/random' => 'fa-random',
+        'mod_bigbluebuttonbn:t/random' => 'fa-repeat',
         'mod_bigbluebuttonbn:t/trash' => 'fa-trash',
     ];
 }

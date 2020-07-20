@@ -244,9 +244,9 @@ function bigbluebuttonbn_view_render_room(&$bbbsession, $activity, &$jsvars) {
     );
     // Main box.
     $output  = $OUTPUT->box_start('generalbox boxaligncenter', 'bigbluebuttonbn_view_message_box');
+    $output .= '<br><span id="guestlink_panel"></span>';
     $output .= '<br><span id="status_bar"></span>';
     $output .= '<br><span id="control_panel"></span>';
-    $output .= '<br><span id="guestlink_panel"></span>';
     $output .= $OUTPUT->box_end();
     // Action button box.
     $output .= $OUTPUT->box_start('generalbox boxaligncenter', 'bigbluebuttonbn_view_action_button_box');
