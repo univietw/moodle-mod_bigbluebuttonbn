@@ -250,6 +250,7 @@ $string['index_heading_viewer'] = 'Viewers';
 $string['index_heading'] = 'BigBlueButton Rooms';
 $string['mod_form_block_general'] = 'General settings';
 $string['mod_form_block_room'] = 'Activity/Room settings';
+$string['mod_form_block_guestlink'] = 'External guest link';
 $string['mod_form_block_recordings'] = 'Recording settings';
 $string['mod_form_block_presentation'] = 'Presentation content';
 $string['mod_form_block_presentation_default'] = 'Presentation default content';
@@ -314,6 +315,7 @@ $string['guestlink_form_join_welcome'] = 'You have been invited to join!';
 $string['guestlink_form_join_wrong_password'] = 'Wrong access code!';
 $string['guestlink_form_join_no_username'] = 'Please enter your name!';
 $string['guestlink_form_join_waiting'] = 'The meeting has not started (yet). You will automatically join, once it started.';
+$string['guestlink_form_noname_warning'] = 'Please enter a name!';
 
 $string['starts_at'] = 'Starts';
 $string['started_at'] = 'Started';
