@@ -50,7 +50,8 @@ if(!$valid) {
     $context = ['name' => $bigbluebuttonbn->name, 'gid' => $gid, 
         'guestpassenabled' => $bigbluebuttonbn->guestpass,
         'guestpasserrormessage' => $guestpasserrormessage,
-        'guestnameerrormessage' => $guestnameerrormessage
+        'guestnameerrormessage' => $guestnameerrormessage,
+        'guestname' => $guestname
     ];
     
     echo $OUTPUT->header();
