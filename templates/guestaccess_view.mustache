@@ -50,7 +50,7 @@
         </div>
     {{/guestnameerrormessage}}
     </div>    <div class="col-lg-2 col-md-2 col-sm-2">
-            <input type="text" class="form-control " name="guestname" id="id_guestname" value="" size="" placeholder="{{# str }} guestlink_form_guestname_info,bigbluebuttonbn {{/ str }}" >
+            <input type="text" class="form-control " name="guestname" id="id_guestname" value="{{guestname}}" size="" placeholder="{{# str }} guestlink_form_guestname_info,bigbluebuttonbn {{/ str }}" >
     </div>
     <div class="col-lg-5 col-md-5 col-sm-5"  style="padding-left:0px;">
             <input type="submit" class="btn btn-primary inputbutton" name="joinbutton" id="id_joinbutton" value="{{# str }} guestlink_form_join_button,bigbluebuttonbn {{/ str }}">
@@ -61,12 +61,14 @@
 <!-- HTML here -->>
 {{^element.frozen}}
 {{#js}}
-function validateForm() {
+var validateForm = function() {
   var x = document.forms["guestlinkform"]["guestname"].value;
   if (x == "") {
     alert("{{# str }} guestlink_form_noname_warning,bigbluebuttonbn {{/ str }}");
     return false;
   }
 };
+
+document.getElementById("id_joinbutton").onclick = validateForm;
 {{/js}}
 {{/element.frozen}}
