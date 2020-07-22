@@ -69,11 +69,16 @@
 {{^element.frozen}}
 {{#js}}
 var validateForm = function() {
-  var x = document.forms["guestlinkform"]["guestname"].value;
-  if (x == "") {
-    alert("{{# str }} guestlink_form_noname_warning,bigbluebuttonbn {{/ str }}");
-    return false;
-  }
+    var guestname = document.forms["guestlinkform"]["guestname"].value;
+    var guestpass = document.forms["guestlinkform"]["guestpass"];
+    if (guestname == "") {
+        alert("{{# str }} guestlink_form_noname_warning,bigbluebuttonbn {{/ str }}");
+        return false;
+    }
+    if(guestpass && !guestpass.value) {
+        alert("{{# str }} guestlink_form_noaccescode_warning,bigbluebuttonbn {{/ str }}");
+        return false;
+    }
 };
 
 document.getElementById("id_joinbutton").onclick = validateForm;
