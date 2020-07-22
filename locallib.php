@@ -2973,6 +2973,10 @@ function bigbluebuttonbn_settings_participants(&$renderer) {
             'participant_guestlink',
             $renderer->render_group_element_checkbox('participant_guestlink', 0)
         );
+        $renderer->render_group_element(
+            'participant_guestlink_logo',
+            $renderer->render_group_element_text('custom_logo', '')
+            );
         // UI for 'participants' feature.
         $roles = bigbluebuttonbn_get_roles(null, false);
         $owner = array('0' => get_string('mod_form_field_participant_list_type_owner', 'bigbluebuttonbn'));

@@ -115,8 +115,9 @@
     color: #495057;
 }
 
-.bigbluebuttonbn-guestaccess-view .header-brand-img .icon {
+.bigbluebuttonbn-guestaccess-view .header-brand-img .icon, .bigbluebuttonbn-guestaccess-view .header-brand-img img {
     height: 2rem;
+    max-height: 2rem;
     line-height: 2rem;
     margin-right: .5rem;
     width: auto;

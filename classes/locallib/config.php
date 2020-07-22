@@ -74,6 +74,7 @@ class config {
             'participant_moderator_default' => '0',
             'participant_guestlink_enabled' => '1',
             'participant_guestlink_default' => '0',
+            'custom_logo' => '',
             'scheduled_duration_enabled' => false,
             'scheduled_duration_compensation' => '10',
             'scheduled_pre_opening' => '10',
@@ -220,6 +221,7 @@ class config {
                'clienttype_default' => self::get('clienttype_default'),
                'muteonstart_editable' => self::get('muteonstart_editable'),
                'muteonstart_default' => self::get('muteonstart_default'),
+               'custom_logo' => self::get('custom_logo'),
           );
     }
 }

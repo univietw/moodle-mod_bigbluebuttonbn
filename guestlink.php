@@ -54,11 +54,15 @@ if(!$valid) {
     if($guestpass && $bigbluebuttonbn->guestpass != $guestpass){
         $guestpasserrormessage = true;
     }
+    $customlogo = \mod_bigbluebuttonbn\locallib\config::get('custom_logo');
+
     $context = ['name' => $bigbluebuttonbn->name, 'gid' => $gid,
         'guestpassenabled' => $bigbluebuttonbn->guestpass,
         'guestpasserrormessage' => $guestpasserrormessage,
         'guestnameerrormessage' => $guestnameerrormessage,
-        'guestname' => $guestname
+        'guestname' => $guestname,
+        'customlogo' => $customlogo,
+        'bbblogo' => !$customlogo,
     ];
 
     echo $OUTPUT->header();
