@@ -235,7 +235,7 @@ function xmldb_bigbluebuttonbn_upgrade($oldversion = 0) {
         try {
             global $DB;
             $transaction = $DB->start_delegated_transaction();
-            $instances = $DB->get_recordset_select('bigbluebuttonbn', 'id');
+            $instances = $DB->get_recordset_select('bigbluebuttonbn', null, null, 'id');
             foreach ($instances as $instance) {
                 $DB->set_field('bigbluebuttonbn', 'guestlinkid', bigbluebuttonbn_random_password(12), ['id' => $instance->id]);
             }
