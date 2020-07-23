@@ -1,8 +1,16 @@
 <div class="bigbluebuttonbn-guestaccess-view">
 <div class="header py-4">
-  <div class="container">
-    <div class="d-flex">
+  <div class="row shiftrow">
+    <div class="col-lg-3 col-md-3 col-sm-3"> </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 header-brand-img">
+        {{#customlogo}}
+            <img src="{{customlogo}}" />
+        {{/customlogo}}
+        {{#bbblogo}}
+            {{#pix}}logo, bigbluebuttonbn, {{#str}} pluginname, bigbluebuttonbn {{/str}}{{/pix}}
+        {{/bbblogo}}
     </div>
+    <div class="col-lg-3 col-md-3 col-sm-3"> </div>
   </div>
 </div>
 
@@ -61,11 +69,16 @@
 {{^element.frozen}}
 {{#js}}
 var validateForm = function() {
-  var x = document.forms["guestlinkform"]["guestname"].value;
-  if (x == "") {
-    alert("{{# str }} guestlink_form_noname_warning,bigbluebuttonbn {{/ str }}");
-    return false;
-  }
+    var guestname = document.forms["guestlinkform"]["guestname"].value;
+    var guestpass = document.forms["guestlinkform"]["guestpass"];
+    if (guestname == "") {
+        alert("{{# str }} guestlink_form_noname_warning,bigbluebuttonbn {{/ str }}");
+        return false;
+    }
+    if(guestpass && !guestpass.value) {
+        alert("{{# str }} guestlink_form_noaccescode_warning,bigbluebuttonbn {{/ str }}");
+        return false;
+    }
 };
 
 document.getElementById("id_joinbutton").onclick = validateForm;
