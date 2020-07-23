@@ -188,7 +188,7 @@ $string['config_participant_description'] = 'These settings define the role by d
 $string['config_participant_guestlink'] = 'Allow invite links';
 $string['config_participant_guestlink_description'] = 'Allow moderator to create an invite link for external participants.';
 $string['config_custom_logo'] = 'Logo for invite link page';
-$string['config_custom_logo_description'] = 'You can change the logo for the invite page for guests here. Standard is the BigBlueButtonbn Logo.';
+$string['config_custom_logo_description'] = 'You can change the logo for the invite page for guests here. Default is the BigBlueButtonbn Logo.';
 
 $string['config_participant_moderator_default'] = 'Moderator by default';
 $string['config_participant_moderator_default_description'] = 'This rule is used by default when a new room is added.';
