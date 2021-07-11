@@ -757,6 +757,9 @@ function bigbluebuttonbn_process_pre_save_checkboxes(&$bigbluebuttonbn) {
     if (!isset($bigbluebuttonbn->disablenote)) {
         $bigbluebuttonbn->disablenote = 0;
     }
+    if (!isset($bigbluebuttonbn->skipcheckaudio)) {
+        $bigbluebuttonbn->skipcheckaudio = 0;
+    }
     if (!isset($bigbluebuttonbn->hideuserlist)) {
         $bigbluebuttonbn->hideuserlist = 0;
     }

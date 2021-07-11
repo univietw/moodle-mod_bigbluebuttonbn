@@ -231,6 +231,7 @@ class bigbluebutton {
         $bbbsession['disableprivatechat'] = $bbbsession['bigbluebuttonbn']->disableprivatechat;
         $bbbsession['disablepublicchat'] = $bbbsession['bigbluebuttonbn']->disablepublicchat;
         $bbbsession['disablenote'] = $bbbsession['bigbluebuttonbn']->disablenote;
+        $bbbsession['skipcheckaudio'] = $bbbsession['bigbluebuttonbn']->skipcheckaudio;
         $bbbsession['hideuserlist'] = $bbbsession['bigbluebuttonbn']->hideuserlist;
         $bbbsession['lockedlayout'] = $bbbsession['bigbluebuttonbn']->lockedlayout;
         $bbbsession['lockonjoin'] = $bbbsession['bigbluebuttonbn']->lockonjoin;
