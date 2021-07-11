@@ -265,6 +265,17 @@ class validator {
     }
 
     /**
+     * Validate if skipcheckaudio section will be shown.
+     *
+     * @return boolean
+     */
+    public static function section_skipcheckaudio_shown() {
+        global $CFG;
+        return (!isset($CFG->bigbluebuttonbn['skipcheckaudio_default']) ||
+            !isset($CFG->bigbluebuttonbn['skipcheckaudio_editable']));
+    }
+
+    /**
      * Validate if hideuserlist section will be shown.
      *
      * @return boolean

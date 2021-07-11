@@ -263,6 +263,11 @@ $string['config_disablenote_default_description'] = 'If enabled the shared notes
 $string['config_disablenote_editable'] = 'Disable shared notes can be edited';
 $string['config_disablenote_editable_description'] = 'Disable shared notes by default can be edited when the instance is added or updated.';
 
+$string['config_skipcheckaudio_default'] = 'Disable echo test enabled by default';
+$string['config_skipcheckaudio_default_description'] = 'If enabled the echo test will be disabled.';
+$string['config_skipcheckaudio_editable'] = 'Disable echo test can be edited';
+$string['config_skipcheckaudio_editable_description'] = 'Disable echo test by default can be edited when the instance is added or updated.';
+
 $string['config_hideuserlist_default'] = 'Hide user list enabled by default';
 $string['config_hideuserlist_default_description'] = 'If enabled the session user list will be hidden.';
 $string['config_hideuserlist_editable'] = 'Hide user list can be edited';
@@ -368,6 +373,7 @@ $string['mod_form_field_disablemic'] = 'Disable microphones';
 $string['mod_form_field_disableprivatechat'] = 'Disable private chat';
 $string['mod_form_field_disablepublicchat'] = 'Disable public chat';
 $string['mod_form_field_disablenote'] = 'Disable shared notes';
+$string['mod_form_field_skipcheckaudio'] = 'Disable echo test';
 $string['mod_form_field_hideuserlist'] = 'Hide user list';
 $string['mod_form_field_lockedlayout'] = 'Lock room layout';
 $string['mod_form_field_lockonjoin'] = 'Ignore lock settings';

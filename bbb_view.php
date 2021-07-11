@@ -347,6 +347,9 @@ function bigbluebuttonbn_bbb_view_create_meeting_data(&$bbbsession) {
     if ($bbbsession['disablenote']) {
         $data['lockSettingsDisableNote'] = 'true';
     }
+    if ($bbbsession['skipcheckaudio']) {
+        $data['userdata-bbb_skip_check_audio'] = 'true';
+    }
     if ($bbbsession['hideuserlist']) {
         $data['lockSettingsHideUserList'] = 'true';
     }

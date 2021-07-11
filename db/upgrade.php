@@ -256,6 +256,11 @@ function xmldb_bigbluebuttonbn_upgrade($oldversion = 0) {
 
         $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
             'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => 'disablenote');
+        xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'skipcheckaudio',
+            $fielddefinition);
+
+        $fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => 'skipcheckaudio');
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'hideuserlist',
             $fielddefinition);
 

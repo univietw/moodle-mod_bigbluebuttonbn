@@ -3080,6 +3080,7 @@ function bigbluebuttonbn_settings_locksettings(&$renderer) {
     bigbluebuttonbn_settings_disableprivatechat($renderer);
     bigbluebuttonbn_settings_disablepublicchat($renderer);
     bigbluebuttonbn_settings_disablenote($renderer);
+    bigbluebuttonbn_settings_skipcheckaudio($renderer);
     bigbluebuttonbn_settings_hideuserlist($renderer);
     bigbluebuttonbn_settings_lockedlayout($renderer);
     bigbluebuttonbn_settings_lockonjoin($renderer);
@@ -3190,6 +3191,28 @@ function bigbluebuttonbn_settings_disablenote(&$renderer) {
         );
     }
 }
+
+/**
+ * Helper function renders general settings if the feature is enabled.
+ *
+ * @param object $renderer
+ *
+ * @return void
+ */
+function bigbluebuttonbn_settings_skipcheckaudio(&$renderer) {
+    // Configuration for BigBlueButton.
+    if ((boolean) \mod_bigbluebuttonbn\settings\validator::section_skipcheckaudio_shown()) {
+        $renderer->render_group_element(
+            'skipcheckaudio_default',
+            $renderer->render_group_element_checkbox('skipcheckaudio_default', 0)
+        );
+        $renderer->render_group_element(
+            'skipcheckaudio_editable',
+            $renderer->render_group_element_checkbox('skipcheckaudio_editable', 1)
+        );
+    }
+}
+
 
 /**
  * Helper function renders general settings if the feature is enabled.
